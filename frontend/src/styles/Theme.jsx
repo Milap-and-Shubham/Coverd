@@ -1,5 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
+//colours: main; 1a4d3a, secondary: 517266, complementary black: 161918
+
 const MainTheme = createTheme({
     palette: {
         mode: "light",
@@ -18,9 +20,30 @@ const MainTheme = createTheme({
     typography: {
         fontFamily: "Raleway",
         button: {
-            fontFamily: 'Raleway',
-        }
+            fontFamily: "Raleway",
+        },
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                contained: {
+                    "&:hover": {
+                        backgroundColor: "#517266",
+                    },
+                },
+                outlined: {
+                    "&:hover": {
+                        backgroundColor: "#517266",
+                    },
+                },
+                text: {
+                    "&:hover": {
+                        backgroundColor: "#517266",
+                    },
+                },
+            },
+        },
     },
 });
 
-export default MainTheme
+export default MainTheme;
