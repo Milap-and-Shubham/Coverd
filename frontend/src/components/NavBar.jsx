@@ -9,6 +9,7 @@ import {
     MenuItem,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import CustomMenu from "../styles/CustomMenu";
 
 function NavBar() {
     const [shrink, setShrink] = useState(false);
@@ -73,49 +74,86 @@ function NavBar() {
                 <Grid container sx={{ gap: "30px" }}>
                     <Box>
                         <Button
-                            sx={{ color: "white" }}
                             onClick={handleHomeNavigation}
+                            sx={{
+                                color: "white",
+                                "& .lift": {
+                                    display: "inline-block",
+                                    transition: "transform 200ms ease",
+                                },
+                                "&:hover .lift": {
+                                    transform: "translateY(-1px)",
+                                },
+                            }}
                         >
-                            Home
+                            <span className="lift">Home</span>
                         </Button>
                     </Box>
                     <Box>
-                        <Button
-                            sx={{ color: "white" }}
+                    <Button
                             onClick={handleExploreClick}
+                            sx={{
+                                color: "white",
+                                "& .lift": {
+                                    display: "inline-block",
+                                    transition: "transform 200ms ease",
+                                },
+                                "&:hover .lift": {
+                                    transform: "translateY(-1px)",
+                                },
+                            }}
                         >
-                            Explore
+                            <span className="lift">Explore</span>
                         </Button>
-                        <Menu
+                        <CustomMenu
                             anchorEl={anchorEl}
                             keepMounted
                             open={Boolean(anchorEl)}
                             onClose={handleExploreClose}
+                            disableScrollLock={true}
                         >
                             <MenuItem onClick={handleWrappedNavigation}>
                                 Your wrapped
                             </MenuItem>
                             <MenuItem onClick={handleCustomCoverNavigation}>
-                                Create customer playlist covers
+                                Custom playlist covers
                             </MenuItem>
-                        </Menu>
+                        </CustomMenu>
                     </Box>
                 </Grid>
                 <Grid container sx={{ gap: "30px" }}>
                     <Box>
-                        <Button
-                            sx={{ color: "white" }}
+                    <Button
                             onClick={handleAboutUsNavigation}
+                            sx={{
+                                color: "white",
+                                "& .lift": {
+                                    display: "inline-block",
+                                    transition: "transform 200ms ease",
+                                },
+                                "&:hover .lift": {
+                                    transform: "translateY(-1px)",
+                                },
+                            }}
                         >
-                            About Us
+                            <span className="lift">About Us</span>
                         </Button>
                     </Box>
                     <Box>
-                        <Button
-                            sx={{ color: "white" }}
+                    <Button
                             onClick={handleContactNavigation}
+                            sx={{
+                                color: "white",
+                                "& .lift": {
+                                    display: "inline-block",
+                                    transition: "transform 200ms ease",
+                                },
+                                "&:hover .lift": {
+                                    transform: "translateY(-1px)",
+                                },
+                            }}
                         >
-                            Contact
+                            <span className="lift">Contact</span>
                         </Button>
                     </Box>
                 </Grid>
