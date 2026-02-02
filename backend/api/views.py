@@ -25,11 +25,11 @@ class CreateUserView(APIView):
 
 class SpotifyLoginView(APIView):
     def get(self, requests):
-        {
+        spotify_login_query = {
             "client_id": settings.CLIENT_ID,
             "response_type": "code",
             "redirect_uri": settings.REDIRECT_URI,   
         }
 
-        url = f"{SPOTIFY_AUTH_URL}?{requests.utils.requote_uri(params)}"
+        url = f"{SPOTIFY_AUTH_URL}?{requests.utils.requote_uri(spotify_login_query)}"
         return redirect(url)

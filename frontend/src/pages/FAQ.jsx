@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Box } from "@mui/material";
 import NavBar from "../components/NavBar.jsx";
 
-function AboutUs() {
+function FAQ() {
     return (
         <Box sx={{ minHeight: "100vh" }}>
             <NavBar></NavBar>
             <Box sx={{ height: "100%" }}>
-                About Us<br></br>H<br></br>H<br></br>H<br></br>H<br></br>H
+                FAQ<br></br>H<br></br>H<br></br>H<br></br>H
                 <br></br>H<br></br>H<br></br>H<br></br>H<br></br>H<br></br>H
                 <br></br>H<br></br>H<br></br>H<br></br>H<br></br>H<br></br>H
                 <br></br>H<br></br>H<br></br>H<br></br>H<br></br>H<br></br>H
@@ -17,10 +17,10 @@ function AboutUs() {
                 <br></br>H<br></br>H<br></br>H<br></br>H<br></br>H<br></br>H
                 <br></br>H<br></br>H<br></br>H<br></br>H<br></br>H<br></br>H
                 <br></br>H<br></br>H<br></br>H<br></br>H<br></br>H<br></br>H
-                <br></br>H<br></br>H<br></br>H<br></br>
+                <br></br>H<br></br>H<br></br>H<br></br>H<br></br>
             </Box>
         </Box>
     );
 }
 
-export default AboutUs;
+export default FAQ;

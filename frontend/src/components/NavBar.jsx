@@ -57,6 +57,11 @@ function NavBar() {
     const handleContactNavigation = (e) => {
         navigate("/contact");
     };
+
+    const handleFAQNavigation = (e) => {
+        navigate("/FAQ");
+    };
+
     return (
         <AppBar
             position="sticky"
@@ -154,6 +159,23 @@ function NavBar() {
                             }}
                         >
                             <span className="lift">Contact</span>
+                        </Button>
+                    </Box>
+                    <Box>
+                    <Button
+                            onClick={handleFAQNavigation}
+                            sx={{
+                                color: "white",
+                                "& .lift": {
+                                    display: "inline-block",
+                                    transition: "transform 200ms ease",
+                                },
+                                "&:hover .lift": {
+                                    transform: "translateY(-1px)",
+                                },
+                            }}
+                        >
+                            <span className="lift">FAQ</span>
                         </Button>
                     </Box>
                 </Grid>

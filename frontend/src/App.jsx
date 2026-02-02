@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import Wrapped from "./pages/Wrapped";
 import CustomCovers from "./pages/CustomCovers";
 import NotFound from "./pages/NotFound";
+import FAQ from "./pages/FAQ";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                     <Route path="/about-us" element={<AboutUs />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/your-wrapped" element={<Wrapped />} />
+                    <Route path="/FAQ" element={<FAQ />} />
                     <Route
                         path="/custom-playlist-covers"
                         element={<CustomCovers />}
