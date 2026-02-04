@@ -16,11 +16,6 @@ SPOTIFY_API_BASE_URL = "https://api.spotify.com/v1"
 class TestView(APIView):
     def get(self, request, format=None):
         return Response({'hey':'this is a test'}, status=status.HTTP_200_OK)
-    
-class CreateUserView(APIView):
-    queryset = User.objects.all()
-    serializer_class = User
-    permission_classes = [AllowAny]
 
 class SpotifyLoginView(APIView):
     def get(self, requests):
