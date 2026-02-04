@@ -4,12 +4,11 @@ from rest_framework import status
 from .serializers import *
 from .models import *
 from rest_framework.permissions import AllowAny, IsAuthenticated
-import requests
+from requests import Request, post
 from django.conf import settings
 from django.shortcuts import redirect
 # Create your views here.
 
-# ? Check URLs are correct later
 SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
 SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
 SPOTIFY_API_BASE_URL = "https://api.spotify.com/v1"
@@ -31,5 +30,6 @@ class SpotifyLoginView(APIView):
             "redirect_uri": settings.REDIRECT_URI,   
         }
 
-        url = f"{SPOTIFY_AUTH_URL}?{requests.utils.requote_uri(spotify_login_query)}"
-        return redirect(url)
+        url = Request("GET", SPOTIFY_AUTH_URL, spotify_login_query).prepare().url()
+        
+        return Response({'url' : url}, status=status.HTTP_200_OK)
