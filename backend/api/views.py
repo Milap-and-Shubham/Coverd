@@ -33,3 +33,27 @@ class SpotifyLoginView(APIView):
         url = Request("GET", SPOTIFY_AUTH_URL, spotify_login_query).prepare().url()
         
         return Response({'url' : url}, status=status.HTTP_200_OK)
+
+def spotify_callback(request):
+    code = request.GET.get('code')
+    error = request.GET.get('error')
+
+    if (error):
+        print(error)
+
+    spotify_login_query = {
+            "client_id": settings.CLIENT_ID,
+            "response_type": "code",
+            "redirect_uri": settings.REDIRECT_URI,
+            "grant_type": "authorization_code",
+            "code": code,
+            "client_secret" : settings.SPOTIFY_CLIENT_SECRET
+        }
+    
+    response = post(SPOTIFY_TOKEN_URL, spotify_login_query).json()
+
+    access_token = response.get('access_token')
+    refresh_token = response.get('refresh_token')
+    token_type = response.get('token_type')
+    token_expires_in = response.get('expires_in')
+    error = response.get('error')
