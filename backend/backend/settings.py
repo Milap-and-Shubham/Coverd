@@ -18,6 +18,12 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 
+# Spotify OAuth
+CLIENT_ID = os.environ.get('CLIENT_ID')
+SPOTIFY_CLIENT_SECRET = os.environ.get('SPOTIFY_CLIENT_SECRET')
+REDIRECT_URI = os.environ.get('REDIRECT_URI')
+FRONTEND_REDIRECT_URI = os.environ.get('FRONTEND_REDIRECT_URI', 'http://localhost:5173/your-wrapped')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
@@ -28,7 +34,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 DEBUG = os.environ.get('DJANGO_DEBUG')
 
 HOST = os.environ.get('DJANGO_ALLOWED_HOST')
-ALLOWED_HOSTS = [HOST]
+ALLOWED_HOSTS = [HOST, 'localhost', '127.0.0.1']
 
 
 # Application definition

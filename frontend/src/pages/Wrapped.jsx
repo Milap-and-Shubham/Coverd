@@ -1,7 +1,11 @@
 import { Box, Button } from "@mui/material";
 import NavBar from "../components/NavBar.jsx";
+import api from "../api.js";
 
 function Wrapped() {
+    const spotifyAuth = (e) => {
+        window.location.href = import.meta.env.VITE_SPOTIFY_AUTH;
+    };
     return (
         <Box sx={{ minHeight: "100vh" }}>
             <NavBar></NavBar>
@@ -18,6 +22,7 @@ function Wrapped() {
                 </Box>
                 <Button
                     variant="contained"
+                    onClick={spotifyAuth}
                     sx={{
                         marginTop: 4,
                         padding: 6,
