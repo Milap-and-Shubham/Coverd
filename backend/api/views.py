@@ -19,6 +19,12 @@ class TestView(APIView):
         return Response({'hey':'this is a test'}, status=status.HTTP_200_OK)
 
 class SpotifyLoginView(APIView):
+    """
+    Creates a GET request that redirects the user to Spotify's authorisation
+    page, where they need to log into their account which starts the OAuth
+    process.
+    """
+
     def get(self, request):
         spotify_login_query = {
             "client_id": settings.CLIENT_ID,
@@ -36,6 +42,15 @@ class SpotifyLoginView(APIView):
 
 
 class SpotifyCallbackView(APIView):
+    """
+    Once the user successfully logs into their spotify account, a POST request
+    is made to exchange the code for tokens (access and refresh), then the OAuth
+    process is completed and the user gets redirected back to the app website.
+    
+    If any errors occur, the user is redirected back to app website with error
+    info in the redirect url.
+    """
+    
     def get(self, request):
         code = request.GET.get("code")
         error = request.GET.get("error")
