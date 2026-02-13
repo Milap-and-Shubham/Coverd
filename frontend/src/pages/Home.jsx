@@ -12,15 +12,12 @@ import NavBar from "../components/NavBar.jsx";
 
 function Home() {
     const [dialogOpen, setDialogOpen] = useState(true);
-    const closeDialog = () => {
-        setDialogClose(true);
-    };
     return (
         <Box sx={{ minHeight: "100vh" }}>
             <NavBar></NavBar>
             <Box sx={{ height: "100%" }}>
                 HOME
-                <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
+                <Dialog open={dialogOpen} onClose={() => {}}>
                     <Box>
                         <DialogTitle>
                             Terms & Conditions skeleton code, to fix and move
@@ -34,7 +31,7 @@ function Home() {
                                 variant="contained"
                                 onClick={() => setDialogOpen(false)}
                             >
-                                Close
+                                Agree
                             </Button>
                         </DialogActions>
                     </Box>
